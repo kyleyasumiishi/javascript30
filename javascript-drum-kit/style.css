@@ -1,0 +1,59 @@
+:root {
+    font-size: 20px;
+}
+html {
+    font-size: 10px;
+    background: url(https://i.imgur.com/b9r5sEL.jpg) bottom center; 
+    /* The background-position property sets the initial position for each background image. The position is relative to the position layer set by background-origin. */
+    background-size: cover;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.keys {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.key {
+    /* rem is a relative length unit relative to font-size of the root element */
+    border: .4rem solid black;
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    /* Transitions allow you to change property values smoothly, over a given duration */
+    /* The all keyword says we want the transition to apply to all properties */
+    width: 10rem;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    /* alpha channel specifies the opacity of the color; 0.0 = fully transparent; 1.0 = fully opaque*/
+    text-shadow: 0 0 .5rem black;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+    display: block;
+    font-size: 4rem;
+}
+
+.sound {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #ffc660;
+}
