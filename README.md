@@ -2,6 +2,12 @@
 
 Here is a summary of my lessons learned from each project.
 
+Keep Learning/Don't Fully Understand Yet
+- display: block, display: inherit, display: inline-block
+- background shorthand
+- transition
+- background-size: cover
+
 - [1. Drum Kit](#1-drum-kit)
     - [HTML data-* Attribute](#html-data-attribute)
     - [HTML kbd Element](#html-kbd-element)
@@ -12,7 +18,12 @@ Here is a summary of my lessons learned from each project.
 - [2. CSS Clock](#css-clock)
 - [3. CSS Variables](#css-variables)
 - [4. Array Cardio 1](#array-cardio-1)
-- [5. Flex Panel Gallery](#flex-panel-gallery)
+- [5. Flex Panel Gallery](#5-flex-panel-gallery)
+    - [CSS box-sizing Property](#css-box-sizing-property)
+    - [CSS * Selector](#css-*-selector)
+    - [CSS overflow Property](#css-overflow-property)
+    - [CSS box-shadow Property](#css-box-shadow-property)
+    - [CSS transition Property](#css-transition-property)
 
 [Back to top](#contents)
 ****************
@@ -86,5 +97,84 @@ The ```rgba()``` function define colors using the Red-green-blue-alpha (RGBA) mo
 ```
 .key {
     background: rgba(0, 0, 0, 0.4);
+}
+```
+
+## 5. Flex Panel Gallery
+
+### CSS box-sizing Property
+
+[Link](https://www.w3schools.com/css/css3_box-sizing.asp)
+
+The ```box-sizing``` property allows us to include the padding and border in an element's total width and height. By default, the actual width and height of an element equals the width/heigh + padding + border. 
+
+If you set ```box-sizing: border-box``` on an element, padding and border are included in the width and height.
+
+```
+html {
+    box-sizing: border-box
+}
+```
+
+### CSS * Selector
+
+[Link](https://www.w3schools.com/cssref/sel_all.asp)
+
+The ```*``` selector selects all elements. It can also select all elements inside another element.
+
+```
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+```
+
+### CSS Overflow Property
+
+[Link](https://www.w3schools.com/css/css_overflow.asp)
+
+The ```overflow``` property specifies whether to clip the content or to add scrollbars when the content of an element is too big to fit in the specified area. 
+
+The default is ```visible```, which means the overflow is not clipped and the content renders outside the element's box.
+```hidden``` - The overflow is clipped, and the rest of the content will be invisible.
+```scroll``` - The overflow is clipped, and a scrollbar is added to see the rest of the content
+```auto``` - Simil to ```scroll```, but it adds scrollbars only when necessary.
+
+```
+.panels {
+    overflow: hidden;
+}
+```
+
+### CSS box-shadow Property
+
+[Link](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
+
+The ```box-shadow``` property adds shadow effects around an element's frame. You can set multiple effects separated by commas. A box shadow is described by X and Y offsets relative to the element, blur and spread radius, and color.
+
+The presence of the ```inset``` keyword changes the shadow to one inside the frame (as if the content was depressed inside the box). Inset shadows are drawn inside the border (even transparent ones), above the background, but below content.
+
+```
+.panel {
+    box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+    // inset | offset-x | offset-y | blur-radius | spread-raius | color
+}
+```
+
+### CSS transition Property
+
+[Link](https://www.w3schools.com/css/css3_transitions.asp)
+
+The ```transition``` property allows you to change property values smoothly, over a given duration. To create a transition effect, you must specify (1) the CSS property you want to add an effect to, and (2) the duration of th effect. The transition effect will start when the specified CSS propery changes value.
+
+The shorthand property ```transition``` includes ```transition-property```, ```transition-duration```, ```transition-timing-function```, and ```transition-delay```.
+
+```
+.panel {
+    font-size 0.7s cubic-bezier(0.61,-0.19,0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.91,0.7,-0.11),
+    background 0.2s
+}
+.panel p {
+    font-size: 2em;
 }
 ```
