@@ -76,7 +76,7 @@
                 <input type="checkbox">
                 <p>Good Luck!</p>
             </div>
-            <div class="item">
+            <div class="item test">
                 <input type="checkbox">
                 <p>Don't forget to tweet your result!</p>
             </div>
@@ -85,73 +85,34 @@
 
         <script>
             
-            const inbox = document.querySelector(".inbox");
             const checkboxes = document.querySelectorAll("input");
-            let shiftPressed = false;
-            let numCheckedBoxes = 0;
 
-            function countCheckedBoxes() {
-                console.clear();
-                /*
-                const checked = document.querySelectorAll("input:checked + p");
-                checked.forEach(item => {
-                    console.log(item.innerHTML);
-                });
-                */
-                numCheckedBoxes = [...checkboxes].reduce((acc, checkbox) => {
-                    if (checkbox.checked) { 
-                        acc++;
-                    } 
-                    return acc;
-                }, 0);
+            let lastChecked;
+            
+            function handleCheck(e) {
+                // check if they had the shift key down
+                // AND check that they are checking it
+                let inBetween = false;
+                if (e.shiftKey && this.checked) {
+                    // loop over every single checkbox
+                    checkboxes.forEach(checkbox => {
+                        console.log(checkbox);
+                        if (checkbox === this || checkbox === lastChecked) {
+                            inBetween = !inBetween;
+                            console.log("Starting to check them inbetween!");
+                        }
 
-                // console index and text of checked boxes
-                /*
-                checkboxes.forEach((checkbox, index) => {
-                    if (checkbox.checked) {
-                        console.log("index: ", index);
-                        console.log("text: ", checkbox.nextElementSibling.innerText);
-                    }
-                });
-                */
-
-                // firstCheckedIndex
-                // secondCheckedIndex
-                // if shiftPressed forEach if index between the two, apply formatting
-
-
-                console.log(numCheckedBoxes);
+                        if (inBetween) {
+                            checkbox.checked = true;
+                        }
+                    });
+                }
+                
+                console.log(e);
+                lastChecked = this;
             }
 
-            
-            function selectMultipleBoxes(e) {
-                if (shiftPressed) {
-                    let 
-                }
-            }
-            
-
-
-            
-
-            window.addEventListener("keydown", e => {
-                if (e.keyCode === 16) {
-                    shiftPressed = true;
-                    console.log("shiftPressed: ", shiftPressed);
-                }
-            });
-
-            window.addEventListener("keyup", e => {
-                if (e.keyCode === 16) {
-                    shiftPressed = false;
-                    console.log("shiftPressed: ", shiftPressed);
-
-                };
-            });
-
-
-            window.addEventListener("click", countCheckedBoxes);
-            inbox.addEventListener("change", e => console.log(e));
+            checkboxes.forEach(checkbox => checkbox.addEventListener("click", handleCheck));
 
         </script>
 
