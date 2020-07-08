@@ -7,6 +7,7 @@ Keep Learning/Don't Fully Understand Yet
 - background shorthand
 - transition
 - background-size: cover
+- user agent stylesheet (https://www.w3schools.com/cssref/css_default_values.asp, https://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements/6867287#6867287)
 
 - [1. Drum Kit](#1-drum-kit)
     - [HTML data-* Attribute](#html-data-attribute)
